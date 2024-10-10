@@ -1,0 +1,18 @@
+---
+services:
+  jupyterlab:
+    image: quay.io/jupyter/scipy-notebook:latest
+    container_name: jupyterlab
+    restart: unless-stopped
+    volumes:
+      - /mnt/g/VM/Docker/Jupyter:/opt/app/data
+    environment:
+      - JUPYTER_TOKEN=token1234
+    ports:
+      - 8888:8888 #optional
+    networks: 
+      - homelab
+
+networks:
+  homelab:
+    driver: bridge
